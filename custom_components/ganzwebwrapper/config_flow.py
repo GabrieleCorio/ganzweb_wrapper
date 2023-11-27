@@ -1,7 +1,15 @@
 """Adds config flow for GanzWeb Wrapper."""
 from __future__ import annotations
 
-import voluptuous as vol
+from voluptuous import (
+    Schema,
+    Required,
+    Coerce,
+    All,
+    In,
+    Range,
+    IsFile,
+)
 from homeassistant import config_entries
 
 from .const import DOMAIN, LOGGER
