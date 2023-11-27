@@ -21,7 +21,7 @@ class GanzwebwrapperConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
 
     VERSION = 1
 
-    async def async_step_user(
+    async def async_setup_entry(
         self,
         user_input: dict | None = None,
     ) -> config_entries.FlowResult:
