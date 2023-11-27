@@ -20,5 +20,11 @@ class GanzwebwrapperConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             pass
 
         return self.async_show_form(
-            step_id="user", data_schema=vol.Schema({("host"): str}), errors=errors
+            step_id="user",
+            data_schema=Schema({
+                Required("address", description={"suggested_value": "http://127.0.0.1"}): str,
+                Required("port", description={"suggested_value": 80}): int,
+                Required("token"): str,
+            }),
+            errors=errors
         )
