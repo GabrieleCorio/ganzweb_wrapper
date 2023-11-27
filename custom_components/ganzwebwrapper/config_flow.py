@@ -15,12 +15,13 @@ class GanzwebwrapperConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
 
     VERSION = 1
 
+    errors = {}
     async def async_step_user(self, user_input: dict | None = None) -> config_entries.FlowResult:
         """Handle a flow initialized by the user."""
 
         if user_input is not None:
-            pass  # TODO: process info
+            pass
 
         return self.async_show_form(
-            step_id="user", data_schema=vol.Schema({vol.Required("password"): str})
+            step_id="user", data_schema=vol.Schema({("host"): str}), errors=errors
         )
