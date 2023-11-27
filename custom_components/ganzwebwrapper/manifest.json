@@ -1,5 +1,5 @@
 {
-    "domain": "ganzweb_wrapper",
+    "domain": "ganzwebwrapper",
     "name": "GanzWeb Wrapper",
     "codeowners": [
       "@gabrielecorio"

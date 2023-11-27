@@ -16,7 +16,7 @@ from .api import (
 from .const import DOMAIN, LOGGER
 
 
-class Ganzweb_wrapperFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
+class GanzWebWrapperConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
     """Config flow for GanzWeb Wrapper."""
 
     VERSION = 1
