@@ -15,51 +15,12 @@ class GanzwebwrapperConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
 
     VERSION = 1
 
-    async def async_setup_entry(
-        self,
-        user_input: dict | None = None,
-    ) -> config_entries.FlowResult:
+    async def async_step_user(self, user_input: dict | None = None) -> config_entries.FlowResult:
         """Handle a flow initialized by the user."""
-        _errors = {}
-        # if user_input is not None:
-        #     try:
-        #         await self._test_credentials(
-        #             username=user_input[CONF_USERNAME],
-        #             password=user_input[CONF_PASSWORD],
-        #         )
-        #     except IntegrationBlueprintApiClientAuthenticationError as exception:
-        #         LOGGER.warning(exception)
-        #         _errors["base"] = "auth"
-        #     except IntegrationBlueprintApiClientCommunicationError as exception:
-        #         LOGGER.error(exception)
-        #         _errors["base"] = "connection"
-        #     except IntegrationBlueprintApiClientError as exception:
-        #         LOGGER.exception(exception)
-        #         _errors["base"] = "unknown"
-        #     else:
-        #         return self.async_create_entry(
-        #             title=user_input[CONF_USERNAME],
-        #             data=user_input,
-        #         )
+
+        if user_input is not None:
+            pass  # TODO: process info
 
         return self.async_show_form(
-            step_id="user",
-            data_schema=vol.Schema(
-                {
-                    vol.Required(
-                        CONF_USERNAME,
-                        default=(user_input or {}).get(CONF_USERNAME),
-                    ): selector.TextSelector(
-                        selector.TextSelectorConfig(
-                            type=selector.TextSelectorType.TEXT
-                        ),
-                    ),
-                    vol.Required(CONF_PASSWORD): selector.TextSelector(
-                        selector.TextSelectorConfig(
-                            type=selector.TextSelectorType.PASSWORD
-                        ),
-                    ),
-                }
-            ),
-            errors=_errors,
+            step_id="user", data_schema=vol.Schema({vol.Required("password"): str})
         )
